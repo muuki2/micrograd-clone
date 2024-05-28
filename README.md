@@ -1,5 +1,3 @@
-# micrograd-clone
-
 # Micrograd-Clone
 
 This repository contains my own implementation of the `micrograd` project. `micrograd` is a tiny Autograd engine (and a neural network library that uses this engine) that implements backpropagation for training neural networks.

@@ -48,23 +48,25 @@ class MLP:
             params.extend(ps)
         return params
     
-    def train(n, xs, ys, epochs=20, learning_rate=0.01):
+    def __train__(self, xs, ys, epochs=20, learning_rate=0.01):
         for k in range(epochs):
             # forward pass
-            ypred = [n(x) for x in xs]
+            ypred = [self(x) for x in xs]
             loss = sum(((yout - ygt)**2 for ygt, yout in zip(ys, ypred)), start=Value(0.0)) 
-
+            
             # zero grad
-            for p in n.parameters():
+            for p in self.parameters():
                 p.grad = 0.0
             # backward pass
             loss.backward()
 
             # update weights
-            for p in n.parameters():
+            for p in self.parameters():
                 p.data += -learning_rate * p.grad
 
             print(k, loss.data)
-    
+        
+            
+
     
     
